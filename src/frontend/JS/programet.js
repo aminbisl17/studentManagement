@@ -18,10 +18,10 @@ function fetchBachelorPrograms() {
           div.classList.add('contentItem');
 
           const name = document.createElement('p');
-          name.textContent = "Program: " + item.fushaStudimit;
+          name.textContent = "Programi: " + item.fushaStudimit;
 
           const dega = document.createElement('p');
-          dega.textContent = "Faculty: " + item.emri_deges;
+          dega.textContent = "Pershkrimi: " + item.pershkrimi;
 
           div.appendChild(name);
           div.appendChild(dega);

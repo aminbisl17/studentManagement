@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         e.preventDefault(); 
 
         const formData = new FormData(form);
+         console.log("Form submit prevented!");
 
         fetch('/studentManagement/src/backend/Database/API/studentDataApi.php', {  method: 'POST', body:formData})
         .then(response => response.json()).then(data => {
