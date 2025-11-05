@@ -1,4 +1,4 @@
 <?php
-header("Location: /studentManagement/src/frontend/static/login.html");
+header("Location: /studentManagement/src/frontend/static/main.html");
 exit();
 ?>

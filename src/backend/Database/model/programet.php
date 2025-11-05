@@ -12,7 +12,12 @@ function getAllBachelor(){
         die(json_encode(array("error" => "Query failed")));
     }
 
-    $data = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+    $data = [];
+
+    while($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+
+        $data[] = $row;
+    }
 
     sqlsrv_free_stmt($stmt);
     sqlsrv_close($con);
