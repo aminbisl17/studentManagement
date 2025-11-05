@@ -7,7 +7,7 @@ include __DIR__ . '/../db_connect.php';
 
     $con = getConnection();
 
-    $sql = "SELECT s.ID FROM studentdata s JOIN people p ON p.ID = s.ID WHERE s.emailUBT = ?";
+    $sql = "SELECT s.*, p.* FROM studentdata s JOIN people p ON p.ID = s.ID WHERE s.emailUBT = ?";
 
     $stmt = sqlsrv_query($con, $sql, array($Email));
     if ($stmt === false) {

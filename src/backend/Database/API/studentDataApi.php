@@ -1,6 +1,6 @@
 <?php
 
-header("content-typet application/json");
+header("content-type: application/json");
 
 
 include __DIR__ . '/../model/students.php';

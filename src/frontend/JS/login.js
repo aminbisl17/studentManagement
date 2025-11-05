@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if(data.success){
 
                 errorDiv.style.color = 'green';
-                errorDiv.textContent = 'Login successful! Welcome ' + data.student.ID;
+                errorDiv.textContent = 'Login successful! Welcome ' + data.student.Emri;
                 setTimeout(() => {
                     window.location.href = '../static/main.html';
                 }, 1000);
