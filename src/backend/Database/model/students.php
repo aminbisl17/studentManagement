@@ -3,18 +3,16 @@
 include __DIR__ . '/../db_connect.php'; 
 
 
-  function getSpecificStudent($ID){
+  function getSpecificStudent($Email){
 
     $con = getConnection();
-    
-    $sql = "SELECT * FROM studentdata WHERE ID = ?";
-    $params = array($ID);
 
-    $stmt = sqlsrv_query($con, $sql, $params);
+    $sql = "SELECT s.ID FROM studentdata s JOIN people p ON p.ID = s.ID WHERE s.emailUBT = ?";
+
+    $stmt = sqlsrv_query($con, $sql, array($Email));
     if ($stmt === false) {
         die(json_encode(array("error" => "Query failed")));
     }
-
 
       $data = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 

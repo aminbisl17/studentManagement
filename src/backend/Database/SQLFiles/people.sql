@@ -1,3 +1,3 @@
 use ubt;
 
-select * from people;
+select * from studentData;

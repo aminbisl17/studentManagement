@@ -5,16 +5,27 @@ header("content-typet application/json");
 
 include __DIR__ . '/../model/students.php';
 
-if (isset($_GET['id'])) {
-    $student = getSpecificStudent(intval($_GET['id'])); 
+if (isset($_POST['email'])) {
+    
+    $student = getSpecificStudent(strval($_POST['email'])); 
 
     if ($student) {
-        echo json_encode($student); 
+        echo json_encode([
+            "success" => true,
+            "student" => $student
+        ]); 
     } else {
-        echo json_encode(array("error" => "Student not found"));
+       echo json_encode([
+            "success" => false,
+            "student" => $student
+        ]); 
     }
-} else {
-    echo json_encode(array("error" => "No ID provided"));
+}else {
+    echo json_encode([
+        "success" => false,
+        "message" => "Email and password are required"
+    ]);
 }
+
 
 ?>
