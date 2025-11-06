@@ -3,7 +3,7 @@
 header("content-type: application/json");
 
 
-include __DIR__ . '/../model/students.php';
+include __DIR__ . '/../Database/model/students.php';
 
 if (isset($_POST['email'])) {
     
