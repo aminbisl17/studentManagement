@@ -5,9 +5,9 @@ header("content-type: application/json");
 
 include __DIR__ . '/../Database/model/students.php';
 
-if (isset($_POST['email'])) {
+if (isset($_POST['email']) && isset($_POST['password'])) {
     
-    $student = getSpecificStudent(strval($_POST['email'])); 
+    $student = getSpecificStudent(strval($_POST['email']), strval($_POST['password'])); 
 
     if ($student) {
         echo json_encode([
