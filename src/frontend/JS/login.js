@@ -15,12 +15,15 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch('/studentManagement/src/backend/API/studentDataApi.php', {  method: 'POST', body:formData})
         .then(response => response.json()).then(data => {
 
+              console.log(data.success);
             if(data.success){
-
                 errorDiv.style.color = 'green';
                 errorDiv.textContent = 'Login successful! Welcome ' + data.student.Emri;
+
+                 localStorage.setItem('student', JSON.stringify(data.student));
+
                 setTimeout(() => {
-                    window.location.href = '../static/main.html';
+                    window.location.href = '../static/studentProfile.html';
                 }, 1000);
 
             }else {
