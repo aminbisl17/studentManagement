@@ -62,7 +62,7 @@ bachelorBtn.addEventListener('click', () => {
   });
 
   phdBtn.addEventListener('click', () => {
-
+      container.innerHTML = '';
   });
       studyBtn.addEventListener('click', () => {
         console.log("clicked");

@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 
+    if(sessionStorage.getItem('student')){
+       window.location.href = '../static/studentProfile.html';
+      return;
+    }
     const form = document.getElementById("loginForm");
     const errorDiv = document.getElementById('error');
 
@@ -20,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 errorDiv.style.color = 'green';
                 errorDiv.textContent = 'Login successful! Welcome ' + data.student.Emri;
 
-                 localStorage.setItem('student', JSON.stringify(data.student));
+                sessionStorage.setItem('student', JSON.stringify(data.student));
 
                 setTimeout(() => {
                     window.location.href = '../static/studentProfile.html';
@@ -35,7 +39,5 @@ document.addEventListener("DOMContentLoaded", function() {
             errorDiv.style.color = 'red';
             errorDiv.textContent = 'An error occurred';
         });
-
-
     });
 });
