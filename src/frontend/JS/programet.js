@@ -1,10 +1,12 @@
 
-
+document.addEventListener("DOMContentLoaded", () => {
 const container = document.getElementById('content');
 const bachelorBtn = document.getElementById('bachelorBtn');
 const masterBtn = document.getElementById('masterBtn');
 const phdBtn = document.getElementById('phdBtn');
-
+const studyBtn = document.getElementById('studyBtn');
+const applyBtn = document.getElementById('applyBtn');
+const smisBtn = document.getElementById('smisBtn');
 
 function fetchProgram(program) {
   fetch('/studentManagement/src/backend/API/ProgrametDataApi.php?' + program + '=true')
@@ -16,7 +18,7 @@ function fetchProgram(program) {
       return response.json();
     })
     .then(data => {
-      console.log("Data received:", data);
+  
       if (data.success && Array.isArray(data.programi)) {
         container.innerHTML = '';
         data.programi.forEach(item => {
@@ -28,8 +30,6 @@ function fetchProgram(program) {
             img.alt = item.programi; 
             img.style.width = '200px';
             img.style.borderRadius = '10px';
-
-             console.log(item.imgPath);
 
           const name = document.createElement('p');
           name.textContent = "Programi: " + item.programi;
@@ -64,23 +64,20 @@ bachelorBtn.addEventListener('click', () => {
   phdBtn.addEventListener('click', () => {
 
   });
+      studyBtn.addEventListener('click', () => {
+        console.log("clicked");
+        fetchProgram('bachelor');
+    });
 
-const studyBtn = document.getElementById('studyBtn');
-const applyBtn = document.getElementById('applyBtn');
-const smisBtn = document.getElementById('smisBtn');
+    applyBtn.addEventListener('click', () => {
+      //  console.log("clicked");
+        window.location.href = "../static/register.html";
+    });
 
+    smisBtn.addEventListener('click', () => {
+        window.location.href = "../static/login.html";
+    });
 
-
-  studyBtn.addEventListener('click', () => {
-    fetchProgram('bachelor');
-  });
-
-  applyBtn.addEventListener('click', () => {
-container.innerHTML = '';
-  });
-
-  smisBtn.addEventListener('click', () => {
-     window.location.href = "../static/login.html";
-  });
 
 fetchProgram('bachelor');
+  });

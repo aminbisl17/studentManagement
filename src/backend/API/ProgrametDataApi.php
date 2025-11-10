@@ -1,9 +1,10 @@
 <?php
 header("Content-Type: application/json");
 
-include __DIR__ . '/../Database/model/programet.php';
+include __DIR__ . '/../Database/model/functions.php';
 
-$response = []; // Prepare response object
+$response = [];
+
 if (isset($_GET['bachelor'])) {
     $programi = getProgrami('Bachelor');
     if ($programi && count($programi) > 0) {
@@ -28,12 +29,10 @@ if (isset($_GET['master'])) {
     }
 }
 
-// If neither parameter is set
 if (!isset($_GET['bachelor']) && !isset($_GET['master'])) {
     $response['success'] = false;
     $response['message'] = "No query parameter provided";
 }
 
-// Return **single JSON**
 echo json_encode($response);
 ?>

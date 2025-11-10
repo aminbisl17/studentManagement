@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apliko!</title>
+     <link rel="stylesheet" href="../CSS/register.css">
+</head>
+<body>
+     <form id="registerForm">
+    <h2>Apliko!</h2>
+
+    <label for="name">Emri</label>
+    <input type="text" id="name" name="Emri" required>
+
+    <label for="username">Mbiemri</label>
+    <input type="text" id="username" name="Mbiemri" required>
+
+    <label for="location">Vendbanimi</label>
+    <input type="text" id="location" name="Vendbanimi" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="Email" required>
+
+    <label for="phone">Numri i telefonit</label>
+    <input type="tel" id="phone" name="numri_telefonit" pattern="[0-9]{9,15}" placeholder="e.g. 355671234567" required>
+
+    <button type="submit">Apliko</button>
+    <div id="message"></div>
+  </form>
+
+  <script src="../JS/register.js"></script>
+</body>
+</html>
