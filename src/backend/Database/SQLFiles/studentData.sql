@@ -6,5 +6,6 @@ use ubt;
 
 --LTER TABLE studentData
 --ADD studentPassword AS LEFT(emailUBT, CHARINDEX('@', emailUBT) - 1);
--- hello
+-- helloddf
+
 select * from studentData;
