@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const studentData = sessionStorage.getItem('student');
-
   if (!studentData) {
     window.location.href = '../static/login.html';
     return;

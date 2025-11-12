@@ -1,0 +1,12 @@
+# Always do this before coding
+git pull origin main
+
+# Then make your changes and commit
+git add .
+git commit -m "Describe your update"
+
+# Pull again before pushing, to be safe
+git pull origin main --rebase
+
+# Finally push
+git push origin main
