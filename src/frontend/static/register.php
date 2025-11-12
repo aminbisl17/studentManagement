@@ -7,6 +7,12 @@
      <link rel="stylesheet" href="../CSS/register.css">
 </head>
 <body>
+
+  <?php
+include_once "../../backend/Database/model/functions.php";
+// $degaList = getAllDega();
+?>
+
      <form id="registerForm">
     <h2>Apliko!</h2>
 
@@ -26,11 +32,13 @@
     <input type="tel" id="phone" name="numri_telefonit" pattern="[0-9]{9,15}" placeholder="e.g. 355671234567" required>
 
      <label for="drejtimi">Drejtimi</label>
-  <select id="list" name="dega">
-    <option value="shki">Shkenca Kompjuterike dhe inxhinieri</option>
-    <option value="red">E kuqe</option>
-    <option value="green">E gjelbër</option>
-    <option value="blue">Blu</option>
+<select id="dega" name="dega">
+  <!--  <option value="">-- zgjidh degën --</option> -->
+    <?php foreach (getAllDega() as $row): ?>
+        <option value="<?= $row['ID'] ?>">
+            <?= $row['fushaStudimit'] ?>
+        </option>
+    <?php endforeach; ?>
   </select>
 
 

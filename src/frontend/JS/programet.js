@@ -70,8 +70,7 @@ bachelorBtn.addEventListener('click', () => {
     });
 
     applyBtn.addEventListener('click', () => {
-      //  console.log("clicked");
-        window.location.href = "../static/register.html";
+        window.location.href = "/studentManagement/src/frontend/static/register.php";
     });
 
     smisBtn.addEventListener('click', () => {

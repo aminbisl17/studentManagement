@@ -100,4 +100,28 @@ function getProgrami($programi){
 
     return ['success' => true];
 }
+
+function getAllDega(){
+
+    $con = getConnection();
+
+    if (!$con) {
+        return ['success' => false, 'error' => 'Database connection failed'];
+    }
+
+    $stmt = sqlsrv_query($con, "SELECT * FROM dega");
+
+     if ($stmt === false) {
+        die(json_encode(array("error" => "Query failed")));
+    }
+
+
+     $data = [];
+
+    while($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+
+        $data[] = $row;
+    }
+    return $data;
+}
 ?>

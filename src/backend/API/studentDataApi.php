@@ -1,6 +1,6 @@
 <?php
 
-header("content-type: application/json");
+header("Content-Type: application/json; charset=UTF-8");
 
 
 include __DIR__ . '/../Database/model/functions.php';

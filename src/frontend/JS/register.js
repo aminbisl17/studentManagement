@@ -7,6 +7,9 @@ form.addEventListener("submit", async (e) => {
 
   const formData = new FormData(form);
 
+    const selectedDega = formData.get("dega");  // <-- HERE
+  console.log("Selected dega:", selectedDega);
+
   try {
     const response = await fetch("/studentManagement/src/backend/API/registerApi.php", { 
       method: "POST",
