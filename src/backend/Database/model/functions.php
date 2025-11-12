@@ -37,7 +37,7 @@ function getProgrami($programi){
     if (!$con) {
         return ['success' => false, 'error' => 'Database connection failed'];
     }
-//
+//sdsd
 
     $sql = "SELECT s.*, p.* FROM studentdata s JOIN people p ON p.ID = s.id_personit WHERE s.emailUBT = ? and s.studentPassword = ?";
 
