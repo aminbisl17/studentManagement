@@ -8,4 +8,19 @@ use ubt;
 --ADD studentPassword AS LEFT(emailUBT, CHARINDEX('@', emailUBT) - 1);
 -- helloddf
 
-select * from studentData;
+
+--SELECT 
+  --  t.name AS TableName,
+   -- c.name AS ColumnName,
+   -- dc.name AS DefaultConstraintName,
+   -- dc.definition AS DefaultValue
+---FROM sys.default_constraints dc
+--JOIN sys.columns c 
+  --  ON dc.parent_object_id = c.object_id 
+  -- AND dc.parent_column_id = c.column_id
+--JOIN sys.tables t 
+  --  ON dc.parent_object_id = t.object_id
+--WHERE t.name = 'people';
+
+
+select * from studentdata;

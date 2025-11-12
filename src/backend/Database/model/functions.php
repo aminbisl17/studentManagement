@@ -39,7 +39,7 @@ function getProgrami($programi){
     }
 
 
-    $sql = "SELECT s.*, p.* FROM studentdata s JOIN people p ON p.ID = s.ID WHERE s.emailUBT = ? and s.studentPassword = ?";
+    $sql = "SELECT s.*, p.* FROM studentdata s JOIN people p ON p.ID = s.id_personit WHERE s.emailUBT = ? and s.studentPassword = ?";
 
     $stmt = sqlsrv_query($con, $sql, array($Email, $Password));
     if ($stmt === false) {
