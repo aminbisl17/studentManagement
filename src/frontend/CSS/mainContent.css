@@ -75,3 +75,42 @@ header {
   padding: 10px;
   border-radius: 6px;
 }
+
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 10%;
+  background-color: #003399;
+  color: white;
+  gap: 30px;
+}
+.hero-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+.hero-btn {
+  background-color: #0064f1;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.hero-btn:hover {
+  background-color: #004fbd;
+}
+
+.hero-img {
+  width: 50%;
+  border-radius: 15px;
+}
