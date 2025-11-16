@@ -2,8 +2,8 @@ use ubt;
 
 
 
- insert into studentData(id_personit, id_programit, vitiAkademik, semestri, grupi, emailUBT, pagesa) values(1002,1,1,1, 'GPZa',
-  LOWER(LEFT('Elon',1) + LEFT('Zenelaj',1) + CAST((ISNULL((SELECT MAX(ID) FROM people),0)+1) * CAST(RAND() * 1000 AS INT) AS VARCHAR) + '@ubt-uni.net'), 1800);
+-- insert into studentData(id_personit, id_programit, vitiAkademik, semestri, grupi, emailUBT, pagesa) values(1002,1,1,1, 'GPZa',
+  --LOWER(LEFT('Elon',1) + LEFT('Zenelaj',1) + CAST((ISNULL((SELECT MAX(ID) FROM people),0)+1) * CAST(RAND() * 1000 AS INT) AS VARCHAR) + '@ubt-uni.net'), 1800);
 
 --LTER TABLE studentData
 --ADD studentPassword AS LEFT(emailUBT, CHARINDEX('@', emailUBT) - 1);
@@ -24,4 +24,4 @@ use ubt;
 --WHERE t.name = 'people';
 
 
-select * from studentdata;
+SELECT p.*, d.*, b.* FROM programet p JOIN dega d ON d.ID = p.id_deges left join branch b on b.id_programit = p.ID WHERE p.programi = 'bachelor';
