@@ -7,30 +7,40 @@
 body {
       margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #d6d6d6;
     }
 
     header {
-      background-color: #333;
+      height: 70px;
+      background-color: #003399;
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
+      padding: 12px;
       gap: 10px;
+      box-shadow: #555 0px 4px 6px -1px;
     }
+    #ubtLogo{
+      height: 50px;
+      
+    }
+  
 
     header button {
-      background-color: #555;
+      background-color: #0064f1;
       border: none;
       color: white;
       padding: 10px 20px;
       cursor: pointer;
-      border-radius: 4px;
-      transition: background-color 0.3s;
+      border-radius: 24px;
+      transition: background-color 0.6s;
+      font-size: 15px;
     }
 
     header button:hover {
-      background-color: #777;
+      background-color: #0050bf;
+      
     }
 
     .content {
@@ -50,13 +60,26 @@ body {
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
-      border: 1px solid #007BFF;
-      border-radius: 5px;
+      border: none;
+      border-radius: 24px;
       background-color: #007BFF;
       color: white;
-      transition: background-color 0.3s;
+      transition: background-color 0.4s;
+      transition-duration:0.4s ;
     }
 
     .button-bar button:hover {
-      background-color: #0056b3;
+      background-color: #0055cc;
+      
+     
+    }
+    #content{
+      width: 80%;
+      background: white;
+      margin: auto;
+      height: 500px;
+      padding: 25px;
+      box-shadow: #555 0px 4px 6px -1px;
+      border-radius: 8px;
+
     }
