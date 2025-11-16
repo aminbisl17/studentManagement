@@ -45,6 +45,12 @@ function fetchProgram(program) {
           div.appendChild(dega);
           div.appendChild(pershkrimi);
           container.appendChild(div);
+
+          div.addEventListener('click', () => {
+             console.log("Div clicked!", item)
+          localStorage.setItem('selectedProgram', JSON.stringify(item));
+          window.location.href = 'programDetails.html';
+          });
         });
       } else {
         console.error("No bachelor programs found or not an array", data);
