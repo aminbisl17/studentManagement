@@ -81,6 +81,11 @@ function getProgrami($programi)
 
       $data = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 
+          if ($data && isset($data['CreatedAt']) && $data['CreatedAt'] instanceof DateTime) {
+        $data['CreatedAt'] = $data['CreatedAt']->format('Y-m-d H:i:s');
+    }
+
+
     sqlsrv_free_stmt($stmt);
     sqlsrv_close($con);
    

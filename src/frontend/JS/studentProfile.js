@@ -7,9 +7,26 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   const student = JSON.parse(studentData);
+  const content = document.getElementById('content');
   
   document.getElementById('data').textContent =
-    `Welcome, ${student.Emri} ${student.Mbiemri}!`;
+    `${student.Emri} ${student.Mbiemri}!`;
+
+       let dateStr = student.CreatedAt;
+
+    if (typeof dateStr === 'object' && dateStr.date) {
+        dateStr = dateStr.date; // e formaton daten
+    }
+    const date = new Date(dateStr.replace(' ', 'T'));
+    const createdAt = document.createElement('p');
+    createdAt.textContent = date.toLocaleString();
+
+
+    const grupi = document.createElement('p');
+    grupi.textContent = `Grupi: ${student.grupi}`;
+
+   content.appendChild(grupi);
+   content.appendChild(createdAt);
 
 
     document.getElementById('logoutBtn').addEventListener('click', () =>{

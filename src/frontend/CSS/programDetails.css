@@ -1,0 +1,16 @@
+.hero {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    position: relative;      /* IMPORTANT */
+    /* REMOVE flex or it breaks layout */
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;     /* replaces width:100% safely */
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5);
+}
