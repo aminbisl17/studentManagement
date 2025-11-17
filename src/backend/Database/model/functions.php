@@ -11,7 +11,6 @@ function getProgrami($programi)
         return ['success' => false, 'error' => 'Database connection failed'];
     }
 
-    // Parameterized query (prevents SQL injection)
     $sql = "
         SELECT 
             p.ID AS program_id,
