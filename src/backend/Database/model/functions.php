@@ -3,31 +3,62 @@
 include __DIR__ . '/../db_connect.php'; 
 
 
-function getProgrami($programi){
-
+function getProgrami($programi)
+{
     $con = getConnection();
 
     if (!$con) {
         return ['success' => false, 'error' => 'Database connection failed'];
     }
 
+    // Parameterized query (prevents SQL injection)
+    $sql = "
+        SELECT 
+            p.ID AS program_id,
+            p.id_deges,
+            p.programi,
+            p.qmimiBaz,
+            s.lokacioni
+        FROM programet p
+        JOIN dega d ON d.ID = p.id_deges
+        LEFT JOIN branch b ON b.id_programit = p.ID
+        JOIN studyplaces s ON s.ID = b.id_lokacionit
+        WHERE p.programi = ?
+    ";
 
-       $stmt = sqlsrv_query($con, "SELECT p.*, d.* FROM programet p JOIN dega d ON d.ID = p.id_deges WHERE p.programi = '" . $programi . "'");
+    $params = [$programi];
+
+    $stmt = sqlsrv_query($con, $sql, $params);
+
     if ($stmt === false) {
-        die(json_encode(array("error" => "Query failed")));
+        return ['success' => false, 'error' => 'Query failed', 'details' => sqlsrv_errors()];
     }
 
-    $data = [];
+    $result = [];
 
-    while($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
 
-        $data[] = $row;
+        $id = $row['program_id'];
+
+        if (!isset($result[$id])) {
+            $result[$id] = [
+                'ID'        => $id,
+                'id_deges'  => $row['id_deges'],
+                'programi'  => $row['programi'],
+                'qmimiBaz'  => $row['qmimiBaz'],
+                'lokacioni' => []
+            ];
+        }
+
+        if (!empty($row['lokacioni'])) {
+            $result[$id]['lokacioni'][] = $row['lokacioni'];
+        }
     }
 
     sqlsrv_free_stmt($stmt);
     sqlsrv_close($con);
-   
-    return $data;
+
+    return array_values($result);
 }
 
  function getSpecificStudent($Email, $Password){
