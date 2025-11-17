@@ -5,6 +5,7 @@ use ubt;
 
 
 --update branch set id_lokacionit = 3 WHERE ID = 7;
---insert into branch (id_programit, id_lokacionit, AkreditimiRiakreditimi) values(2,2,'2025-2030')
+insert into branch (id_programit, id_lokacionit, AkreditimiRiakreditimi) values(3,5,'Riakreditimi')
 
-select * from programet
+--insert into studyplaces(lokacioni) values('Main Campus. Pristina');
+select * from branch;

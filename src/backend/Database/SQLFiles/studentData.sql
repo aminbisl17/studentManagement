@@ -24,4 +24,4 @@ use ubt;
 --WHERE t.name = 'people';
 
 
-SELECT p.*, d.*, b.*, s.* FROM programet p JOIN dega d ON d.ID = p.id_deges left join branch b on b.id_programit = p.ID join studyplaces s ON s.ID = b.id_lokacionit where p.programi = 'bachelor';
+SELECT p.*, d.*, b.*, s.* FROM programet p JOIN dega d ON d.ID = p.id_deges left join branch b on b.id_programit = p.ID left join studyplaces s ON s.ID = b.id_lokacionit where p.programi = 'Master';

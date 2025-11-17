@@ -9,6 +9,8 @@ const applyBtn = document.getElementById('applyBtn');
 const smisBtn = document.getElementById('smisBtn');
 
 function fetchProgram(program) {
+
+  container.innerHTML = '';
   fetch('/studentManagement/src/backend/API/ProgrametDataApi.php?' + program + '=true')
     .then(response => {
       console.log("Fetch response:", response);
@@ -20,7 +22,6 @@ function fetchProgram(program) {
     .then(data => {
   
       if (data.success && Array.isArray(data.programi)) {
-        container.innerHTML = '';
         data.programi.forEach(item => {
           const div = document.createElement('div');
           div.classList.add('contentItem');
@@ -47,12 +48,13 @@ function fetchProgram(program) {
           container.appendChild(div);
 
           div.addEventListener('click', () => {
-             console.log("Div clicked!", item)
+
           localStorage.setItem('selectedProgram', JSON.stringify(item));
           window.location.href = 'programDetails.html';
           });
         });
       } else {
+        container.innerHTML= '';
         console.error("No bachelor programs found or not an array", data);
       }
     })

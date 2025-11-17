@@ -14,14 +14,16 @@ function getProgrami($programi)
     $sql = "
         SELECT 
             p.ID AS program_id,
-            p.id_deges,
+            d.fushaStudimit,
+            d.pershkrimi,
+            d.imgPath,
             p.programi,
             p.qmimiBaz,
             s.lokacioni
         FROM programet p
         JOIN dega d ON d.ID = p.id_deges
         LEFT JOIN branch b ON b.id_programit = p.ID
-        JOIN studyplaces s ON s.ID = b.id_lokacionit
+        LEFT JOIN studyplaces s ON s.ID = b.id_lokacionit
         WHERE p.programi = ?
     ";
 
@@ -42,8 +44,10 @@ function getProgrami($programi)
         if (!isset($result[$id])) {
             $result[$id] = [
                 'ID'        => $id,
-                'id_deges'  => $row['id_deges'],
+                'fushaStudimit'  => $row['fushaStudimit'],
                 'programi'  => $row['programi'],
+                'pershkrimi' => $row['pershkrimi'],
+                'imgPath' => $row['imgPath'],
                 'qmimiBaz'  => $row['qmimiBaz'],
                 'lokacioni' => []
             ];
