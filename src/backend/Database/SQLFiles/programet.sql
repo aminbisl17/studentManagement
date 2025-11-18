@@ -9,4 +9,4 @@ use ubt;
 
 --insert into studyplaces(lokacioni) values('Main Campus. Pristina');
 
-select * from programet;
+select * from studentData;
