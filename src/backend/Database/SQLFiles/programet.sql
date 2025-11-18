@@ -8,4 +8,5 @@ use ubt;
 --insert into branch (id_programit, id_lokacionit, AkreditimiRiakreditimi) values(3,5,'Riakreditimi')
 
 --insert into studyplaces(lokacioni) values('Main Campus. Pristina');
-select * from branch;
+
+select * from programet;

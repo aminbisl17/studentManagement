@@ -31,17 +31,14 @@ include_once "../../backend/Database/model/functions.php";
     <label for="phone">Numri i telefonit</label>
     <input type="tel" id="phone" name="numri_telefonit" pattern="[0-9]{9,15}" placeholder="e.g. 355671234567" required>
 
-     <label for="drejtimi">Drejtimi</label>
-<select id="dega" name="dega">
-  <!--  <option value="">-- zgjidh degën --</option> -->
+     <label for="drejtimi">Programi</label>
+    <select id="dega" name="dega">
     <?php foreach (getAllDega() as $row): ?>
-        <option value="<?= $row['ID'] ?>">
-            <?= $row['fushaStudimit'] ?>
+        <option value="<?= $row['id_programit'] ?>">
+            <?= $row['fushaStudimit'] . ' (' . $row['programi'] . ')' ?>
         </option>
     <?php endforeach; ?>
   </select>
-
-
     <button type="submit">Apliko</button>
     <div id="message"></div>
   </form>

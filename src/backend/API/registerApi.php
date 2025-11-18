@@ -14,8 +14,9 @@ $Mbiemri = $_POST['Mbiemri'] ?? '';
 $Vendbanimi = $_POST['Vendbanimi'] ?? '';
 $Email = $_POST['Email'] ?? '';
 $numri_telefonit = $_POST['numri_telefonit'] ?? '';
+$programi = $_POST['dega'] ?? '';
 
-if (!$Emri || !$Mbiemri || !$Vendbanimi || !$Email || !$numri_telefonit) {
+if (!$Emri || !$Mbiemri || !$Vendbanimi || !$Email || !$numri_telefonit || !$programi) {
     echo json_encode(['success' => false, 'message' => 'All fields are required']);
     exit;
 }
@@ -30,7 +31,7 @@ if (personExists($Emri, $Mbiemri, $Vendbanimi)) {
     exit;
 }
 
-$result = apply($Emri, $Mbiemri, $Vendbanimi, $Email, $numri_telefonit);
+$result = apply($Emri, $Mbiemri, $Vendbanimi, $Email, $numri_telefonit, $programi);
 
 echo json_encode($result);
 ?>

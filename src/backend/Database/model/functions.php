@@ -117,16 +117,16 @@ function getProgrami($programi)
 }
 
 
- function apply($Emri, $Mbiemri, $Vendbanimi, $Email, $numri_telefonit) {
+ function apply($Emri, $Mbiemri, $Vendbanimi, $Email, $numri_telefonit, $programi) {
     $con = getConnection();
     if (!$con) {
         return ['success' => false, 'error' => 'Database connection failed'];
     }
 
-    $sql = "INSERT INTO people (Emri, Mbiemri, Vendbanimi, Email, numri_telefonit) 
-            VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO people (Emri, Mbiemri, Vendbanimi, Email, numri_telefonit, program_id) 
+            VALUES (?, ?, ?, ?, ?, ?)";
 
-    $stmt = sqlsrv_query($con, $sql, [$Emri, $Mbiemri, $Vendbanimi, $Email, $numri_telefonit]);
+    $stmt = sqlsrv_query($con, $sql, [$Emri, $Mbiemri, $Vendbanimi, $Email, $numri_telefonit, $programi]);
 
     if ($stmt === false) {
         $errors = sqlsrv_errors();
@@ -148,7 +148,7 @@ function getAllDega(){
         return ['success' => false, 'error' => 'Database connection failed'];
     }
 
-    $stmt = sqlsrv_query($con, "SELECT * FROM dega");
+    $stmt = sqlsrv_query($con, "select d.fushaStudimit, p.programi, p.ID as id_programit from dega d join programet p ON p.id_deges = d.ID");
 
      if ($stmt === false) {
         die(json_encode(array("error" => "Query failed")));

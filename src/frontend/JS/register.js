@@ -7,7 +7,7 @@ form.addEventListener("submit", async (e) => {
 
   const formData = new FormData(form);
 
-    const selectedDega = formData.get("dega");  // <-- HERE
+    const selectedDega = formData.get("dega");  
   console.log("Selected dega:", selectedDega);
 
   try {
