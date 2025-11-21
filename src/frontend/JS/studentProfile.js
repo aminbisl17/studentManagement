@@ -9,24 +9,22 @@ document.addEventListener("DOMContentLoaded", function() {
   const student = JSON.parse(studentData);
   const content = document.getElementById('content');
   
-  document.getElementById('data').textContent =
-    `${student.Emri} ${student.Mbiemri}!`;
-
        let dateStr = student.CreatedAt;
 
     if (typeof dateStr === 'object' && dateStr.date) {
         dateStr = dateStr.date; // e formaton daten
     }
-    const date = new Date(dateStr.replace(' ', 'T'));
-    const createdAt = document.createElement('p');
-    createdAt.textContent = date.toLocaleString();
 
-
-    const grupi = document.createElement('p');
-    grupi.textContent = `Grupi: ${student.grupi}`;
-
-   content.appendChild(grupi);
-   content.appendChild(createdAt);
+     document.getElementById('emri').textContent = `${student.Emri}`;
+     document.getElementById('mbiemri').textContent = `${student.Mbiemri}!`;
+     document.getElementById('grupi').textContent = `${student.grupi}`;
+     document.getElementById('email').textContent = `${student.emailUBT}`;
+     //document.getElementById('nrtel').textContent = `${student.numri_telefonit}`;
+     document.getElementById('fushastudimit').textContent = `${student.fushaStudimit}`;
+     document.getElementById('programi').textContent = `${student.programi}`;
+     document.getElementById('datareg').textContent = (new Date(dateStr.replace(' ', 'T'))).toLocaleString();
+     document.getElementById('statusi').textContent = student.isActive ? "Aktiv" : "Jo Aktiv";
+ //  content.appendChild(createdAt);
 
 
     document.getElementById('logoutBtn').addEventListener('click', () =>{
