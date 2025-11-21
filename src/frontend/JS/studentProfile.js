@@ -15,18 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         dateStr = dateStr.date; // e formaton daten
     }
 
-<<<<<<< HEAD
 
-    const grupi = document.createElement('p');
-    grupi.textContent = `Grupi: ${student.grupi}`;
-
-    const email = document.createElement('p')
-    email.textContent = `Email: ${student.emailUBT}`;
-
-   content.appendChild(grupi);
-   content.appendChild(email);
-   content.appendChild(createdAt);
-=======
      document.getElementById('emri').textContent = `${student.Emri}`;
      document.getElementById('mbiemri').textContent = `${student.Mbiemri}!`;
      document.getElementById('grupi').textContent = `${student.grupi}`;
@@ -37,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
      document.getElementById('datareg').textContent = (new Date(dateStr.replace(' ', 'T'))).toLocaleString();
      document.getElementById('statusi').textContent = student.isActive ? "Aktiv" : "Jo Aktiv";
  //  content.appendChild(createdAt);
->>>>>>> 2f200d343ca195b698ff1c4dffc88a5b157f7151
+
 
 
     document.getElementById('logoutBtn').addEventListener('click', () =>{
