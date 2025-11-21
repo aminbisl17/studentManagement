@@ -3,9 +3,16 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require '../../../vendor/autoload.php';
+require __DIR__ . '/../../../vendor/autoload.php';
+
+
 
 function SendEmail($name, $email, $subject, $message){
+
+    if (!file_exists(__DIR__ . '/../../../vendor/autoload.php')) {
+    return ['success' => false, 'message' => 'Composer autoload.php not found'];
+}
+
     $mail = new PHPMailer(true);
 try {
     $mail->isSMTP();
@@ -24,10 +31,9 @@ try {
     $mail->Body    = "<b>Name:</b> $name<br><b>Email:</b> $email<br><b>Message:</b><br>$message";
     $mail->AltBody = "Name: $name\nEmail: $email\nMessage:\n$message";
     $mail->send();
-
     return ['success' => true];
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+   return ['success' => false, 'message' => $mail->ErrorInfo];
 }
 return ['success' => false];
 }
