@@ -92,5 +92,5 @@ GO
 */
 
 
---insert into studentdata(id_personit, grupi, pagesa) values(1005, 'GPZa', 360.00);
+insert into studentdata(id_personit, grupi, pagesa) values(1006, 'GPZa', 360.00);
 select * from studentData;

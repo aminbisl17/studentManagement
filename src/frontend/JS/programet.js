@@ -55,7 +55,7 @@ function fetchProgram(program) {
         });
       } else {
         container.innerHTML= '';
-        console.error("No bachelor programs found or not an array", data);
+        console.error("No bachelor programs found or not an array s " + data.error);
       }
     })
     .catch(err => console.error("Fetch error:", err));
