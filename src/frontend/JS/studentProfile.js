@@ -25,7 +25,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const grupi = document.createElement('p');
     grupi.textContent = `Grupi: ${student.grupi}`;
 
+    const email = document.createElement('p')
+    email.textContent = `Email: ${student.emailUBT}`;
+
    content.appendChild(grupi);
+   content.appendChild(email);
    content.appendChild(createdAt);
 
 

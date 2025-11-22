@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("emailForm");
     const name = document.getElementById('name');
     const email = document.getElementById('email');
-    const submitBtn = form.querySelector('button[type="submit"]'); // get the submit button
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     if(studentData){
         const student = JSON.parse(studentData);

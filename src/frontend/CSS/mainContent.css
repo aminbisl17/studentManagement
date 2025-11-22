@@ -61,7 +61,7 @@ header {
 }
 
 /*  MAIN CONTENT BOX*/
-#content {
+/* #content {
   width: 80%;
   background: white;
   margin: auto;
@@ -69,11 +69,61 @@ header {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
-}
+} */
 
 /* If you need this class */
-.contentItem {
+/* .contentItem {
   border: 2px solid gray;
   padding: 10px;
   border-radius: 6px;
+} */
+
+
+
+
+
+/* Container ku JavaScript vendos programet */
+#content {
+  display: flex;
+  flex-wrap: wrap;       /* rreshtim në disa rreshta */
+  gap: 20px;             /* hapësirë mes kartelave */
+  justify-content: center;
+  margin-top: 80px;
 }
+
+/* Kartela e çdo programi */
+.contentItem {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+/* Efekt kur kalon me maus */
+.contentItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Imazhi që JS vendos */
+.contentItem img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Tekstet që JS vendos */
+.contentItem p {
+  margin: 5px ;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+
+
+
