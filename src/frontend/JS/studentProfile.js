@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   const student = JSON.parse(studentData);
-  const content = document.getElementById('content');
+  //const content = document.getElementById('content');
   
        let dateStr = student.CreatedAt;
 
@@ -15,16 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
         dateStr = dateStr.date; // e formaton daten
     }
 
-
-    const grupi = document.createElement('p');
-    grupi.textContent = `Grupi: ${student.grupi}`;
-
-    const email = document.createElement('p')
-    email.textContent = `Email: ${student.emailUBT}`;
-
-   content.appendChild(grupi);
-   content.appendChild(email);
-   content.appendChild(createdAt);
      document.getElementById('emri').textContent = `${student.Emri}`;
      document.getElementById('mbiemri').textContent = `${student.Mbiemri}!`;
      document.getElementById('grupi').textContent = `${student.grupi}`;

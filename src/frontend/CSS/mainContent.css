@@ -117,7 +117,7 @@ header {
 .contentItem {
   background: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 12px;
+  border-radius: 7px;
   padding: 15px;
   width: 250px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
