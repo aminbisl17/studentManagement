@@ -74,6 +74,10 @@ header {
 /* If you need this class */
 /* .contentItem {
   border: 2px solid gray;
+
+.contentItem {
+  border: 2px solid red;
+
   padding: 10px;
   border-radius: 6px;
 } */
