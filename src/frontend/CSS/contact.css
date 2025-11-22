@@ -1,50 +1,113 @@
-    body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .contact-form {
-            background: #fff;
-            padding: 30px 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 500px;
-        }
-        .contact-form h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .contact-form label {
-            display: block;
-            margin-top: 15px;
-            color: #555;
-        }
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px 12px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            resize: vertical;
-        }
-        .contact-form textarea {
-            min-height: 120px;
-        }
-        .contact-form button {
-            margin-top: 20px;
-            padding: 12px 20px;
-            background: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 7px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .contact-form button:hover {
-            background: #0056b3;
-        }
+/* --- Global Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+/* Overlay i lehtë për qartësi të formës */
+#black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.567);
+    z-index: 0;
+}
+
+/* --- Contact Form --- */
+.contact-form {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 45px;
+
+    /* Efekti Glass */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.25);
+
+    /* Hije */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+    color: white;
+    text-align: left;
+}
+
+/* Titulli */
+.contact-form h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #003399;
+}
+
+/* Labels */
+.contact-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Input dhe textarea */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+
+    background: rgba(255,255,255,0.85);
+    font-size: 15px;
+    color: #333;
+    resize: vertical;
+}
+
+/* Textarea min-height */
+.contact-form textarea {
+    min-height: 130px;
+}
+
+/* Button */
+.contact-form button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    background-color: #003399;  /* Ngjyrë UBT */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Button hover */
+.contact-form button:hover {
+    background-color: #0055cc;
+    transform: scale(1.02);
+}
+
+/* Error ose mesazh statusi */
+.error {
+    color: #ff4a4a;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
