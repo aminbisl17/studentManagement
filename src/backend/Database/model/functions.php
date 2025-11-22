@@ -72,7 +72,23 @@ function getProgrami($programi)
         return ['success' => false, 'error' => 'Database connection failed'];
     }
 
-    $sql = "SELECT s.*, p.* FROM studentdata s JOIN people p ON p.ID = s.id_personit WHERE s.emailUBT = ? and s.studentPassword = ?";
+    $sql = "SELECT 
+    p.Emri,
+    p.Mbiemri,
+    p.Vendbanimi,
+    s.emailUBT,
+    s.grupi,
+    s.vitiAkademik,
+    s.pagesa,
+    s.isActive, 
+    s.CreatedAt,
+    d.fushaStudimit,
+    r.programi
+FROM studentdata s
+JOIN people p ON p.ID = s.id_personit
+JOIN programet r ON r.ID = p.program_id
+JOIN dega d ON d.ID = r.id_deges  
+ WHERE s.emailUBT = ? and s.studentPassword = ?";
 
     $stmt = sqlsrv_query($con, $sql, array($Email, $Password));
     if ($stmt === false) {
