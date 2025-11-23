@@ -1,21 +1,32 @@
 FROM php:8.2-apache
 
-# Install dependencies for SQL Server drivers
+# Install dependencies
 RUN apt-get update && apt-get install -y \
+    gnupg2 \
+    curl \
+    apt-transport-https \
+    lsb-release \
     unixodbc-dev \
     g++ \
-    curl \
-    && pecl install sqlsrv pdo_sqlsrv \
-    && docker-php-ext-enable sqlsrv pdo_sqlsrv \
     && rm -rf /var/lib/apt/lists/*
+
+# Add Microsoft repository and install ODBC Driver
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && curl https://packages.microsoft.com/config/debian/12/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+    && apt-get update \
+    && ACCEPT_EULA=Y apt-get install -y msodbcsql18
+
+# Install PHP SQL Server extensions
+RUN pecl install sqlsrv pdo_sqlsrv \
+    && docker-php-ext-enable sqlsrv pdo_sqlsrv
 
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy all project files
+# Copy project files
 COPY . /var/www/html/
 
-# Enable Apache mod_rewrite (optional)
+# Enable mod_rewrite
 RUN a2enmod rewrite
 
 # Expose port 80
