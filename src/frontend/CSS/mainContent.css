@@ -78,31 +78,6 @@ header {
 
 
 
-/*  MAIN CONTENT BOX*/
-/* #content {
-  width: 80%;
-  background: white;
-  margin: auto;
-  min-height: 500px;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
-} */
-
-/* If you need this class */
-/* .contentItem {
-  border: 2px solid gray;
-
-.contentItem {
-  border: 2px solid red;
-
-  padding: 10px;
-  border-radius: 6px;
-} */
-
-
-
-
 
 /* Container ku JavaScript vendos programet */
 #content {
@@ -145,6 +120,134 @@ header {
   font-size: 14px;
   color: #333;
 }
+
+
+/* INFO SECTION */
+#infoSection {
+  width: 80%;
+  margin: 60px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+#infoSection h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+#infoSection p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.5;
+}
+
+
+
+
+#testimonials {
+  width: 80%;
+  margin: 60px auto;
+  text-align: center;
+}
+
+#testimonials h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Kartelat */
+.testimonial-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.testimonial {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.testimonial img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.testimonial h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #4f46e5;
+}
+
+.testimonial p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  background: #003399;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 -4px 6px rgba(0,0,0,0.2);
+}
+
+footer p {
+  margin: 5px 0 15px;
+}
+
+
+/* SOCIAL MEDIA */
+footer .socials {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+footer .socials a {
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #4f46e5;
+  color: white;
+  transition: 0.2s ease;
+}
+
+footer .socials a:hover {
+  background: #4338ca;
+}
+
 
 
 
