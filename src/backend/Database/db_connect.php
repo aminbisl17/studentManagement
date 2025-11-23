@@ -44,7 +44,10 @@ function getConnection() {
     $conn = sqlsrv_connect($serverName, $connectionOptions);
 
     if (!$conn) {
-         die(json_encode(array("error" => "Connection failed" . sqlsrv_errors())));
+       die(json_encode([
+    "success" => false,
+    "error" => sqlsrv_errors()
+]));
     }
 
     return $conn;
