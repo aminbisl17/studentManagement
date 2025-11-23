@@ -1,17 +1,17 @@
+# Use official PHP with Apache
 FROM php:8.2-apache
 
-# Serve files from your static folder
-RUN sed -i 's|/var/www/html|/var/www/html/src/frontend/static|' /etc/apache2/sites-available/000-default.conf
-
-# Set default index file
-RUN echo "DirectoryIndex main.html" >> /etc/apache2/apache2.conf
-
-# Copy all files
+# Set working directory
 WORKDIR /var/www/html
+
+# Copy all project files into the container
 COPY . /var/www/html/
 
-# Enable mod_rewrite
+# Optional: enable Apache mod_rewrite if you need routing
 RUN a2enmod rewrite
 
+# Expose port 80
 EXPOSE 80
+
+# Start Apache in the foreground
 CMD ["apache2-foreground"]
