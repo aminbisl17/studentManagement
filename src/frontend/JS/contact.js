@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const formData = new FormData(form);
 
         try {
-            const response = await fetch("/studentManagement/src/backend/API/mailApi.php", { 
+            //const response = await fetch("/studentManagement/src/backend/API/mailApi.php", { 
+            const response = await fetch("../../backend/API/mailApi.php", { 
                 method: "POST",
                 body: formData
             });

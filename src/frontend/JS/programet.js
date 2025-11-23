@@ -11,7 +11,8 @@ const smisBtn = document.getElementById('smisBtn');
 function fetchProgram(program) {
 
   container.innerHTML = '';
-  fetch('/studentManagement/src/backend/API/ProgrametDataApi.php?' + program + '=true')
+ // fetch('/studentManagement/src/backend/API/ProgrametDataApi.php?' + program + '=true')
+ fetch('../../backend/API/ProgrametDataApi.php?' + program + '=true')
     .then(response => {
       console.log("Fetch response:", response);
       if (!response.ok) {
@@ -78,7 +79,8 @@ bachelorBtn.addEventListener('click', () => {
     });
 
     applyBtn.addEventListener('click', () => {
-        window.location.href = "/studentManagement/src/frontend/static/register.php";
+      //  window.location.href = "/studentManagement/src/frontend/static/register.php";
+      window.location.href = "src/frontend/static/register.php";
     });
 
     smisBtn.addEventListener('click', () => {

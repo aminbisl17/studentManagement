@@ -1,17 +1,25 @@
-# Use official PHP with Apache
 FROM php:8.2-apache
+
+# Install dependencies for SQL Server drivers
+RUN apt-get update && apt-get install -y \
+    unixodbc-dev \
+    g++ \
+    curl \
+    && pecl install sqlsrv pdo_sqlsrv \
+    && docker-php-ext-enable sqlsrv pdo_sqlsrv \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy all project files into the container
+# Copy all project files
 COPY . /var/www/html/
 
-# Optional: enable Apache mod_rewrite if you need routing
+# Enable Apache mod_rewrite (optional)
 RUN a2enmod rewrite
 
 # Expose port 80
 EXPOSE 80
 
-# Start Apache in the foreground
+# Start Apache
 CMD ["apache2-foreground"]
