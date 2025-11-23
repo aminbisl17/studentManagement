@@ -38,13 +38,13 @@ function getConnection() {
         "Uid" => getenv("DB_USER"),
         "PWD" => getenv("DB_PASS"),
         "Encrypt" => true,
-        "TrustServerCertificate" => false
+        "TrustServerCertificate" => true
     ];
 
     $conn = sqlsrv_connect($serverName, $connectionOptions);
 
     if (!$conn) {
-         die(json_encode(array("error" => "Connection failed")));
+         die(json_encode(array("error" => "Connection failed" . sqlsrv_errors())));
     }
 
     return $conn;
