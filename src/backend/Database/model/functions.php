@@ -69,7 +69,7 @@ function getProgrami($programi)
     $con = getConnection();
 
     if (!$con) {
-        return ['success' => false, 'error' => 'Database connection failed'];
+        return ['success' => false, 'error' => 'Database connection failed' . sqlsrv_errors()];
     }
 
     $sql = "SELECT 

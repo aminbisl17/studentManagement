@@ -80,7 +80,7 @@ bachelorBtn.addEventListener('click', () => {
 
     applyBtn.addEventListener('click', () => {
       //  window.location.href = "/studentManagement/src/frontend/static/register.php";
-      window.location.href = "src/frontend/static/register.php";
+      window.location.href = "../static/register.php";
     });
 
     smisBtn.addEventListener('click', () => {
