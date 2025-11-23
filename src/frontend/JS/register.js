@@ -11,8 +11,7 @@ form.addEventListener("submit", async (e) => {
   console.log("Selected dega:", selectedDega);
 
   try {
-    //const response = await fetch("/studentManagement/src/backend/API/registerApi.php", { 
-     const response = await fetch("../../backend/API/registerApi.php", { 
+    const response = await fetch("/studentManagement/src/backend/API/registerApi.php", { 
       method: "POST",
       body: formData
     });

@@ -16,8 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const formData = new FormData(form);
          console.log("Form submit prevented!");
 
-        //fetch('/studentManagement/src/backend/API/studentDataApi.php', { 
-         fetch('../../backend/API/studentDataApi.php', { 
+        fetch('/studentManagement/src/backend/API/studentDataApi.php', { 
              method: 'POST', body:formData})
         .then(response => response.json()).then(data => {
 
