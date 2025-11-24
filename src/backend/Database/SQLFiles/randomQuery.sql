@@ -1,1 +1,1 @@
-select * from systemuser;
+select d.imgPath, d.pershkrimi, d.fushaStudimit from dega d;

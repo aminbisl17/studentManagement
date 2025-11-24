@@ -15,11 +15,13 @@ document.addEventListener("DOMContentLoaded", function() {
         dateStr = dateStr.date; // e formaton daten
     }
 
+    console.log(student);
+
      document.getElementById('emri').textContent = `${student.Emri}`;
      document.getElementById('mbiemri').textContent = `${student.Mbiemri}!`;
      document.getElementById('grupi').textContent = `${student.grupi}`;
      document.getElementById('email').textContent = `${student.emailUBT}`;
-     //document.getElementById('nrtel').textContent = `${student.numri_telefonit}`;
+     document.getElementById('nrtel').textContent = `${student.numri_telefonit}`;
      document.getElementById('fushastudimit').textContent = `${student.fushaStudimit}`;
      document.getElementById('programi').textContent = `${student.programi}`;
      document.getElementById('datareg').textContent = (new Date(dateStr.replace(' ', 'T'))).toLocaleString();

@@ -1,14 +1,5 @@
 
-document.addEventListener("DOMContentLoaded", () => {
 const container = document.getElementById('content');
-const bachelorBtn = document.getElementById('bachelorBtn');
-const masterBtn = document.getElementById('masterBtn');
-const phdBtn = document.getElementById('phdBtn');
-const studyBtn = document.getElementById('studyBtn');
-const applyBtn = document.getElementById('applyBtn');
-const smisBtn = document.getElementById('smisBtn');
-const homeBtn = document.getElementById('homeBtn');
-const buttonBar = document.getElementById('buttonBar');
 
 function fetchProgram(program) {
 
@@ -22,8 +13,13 @@ function fetchProgram(program) {
       return response.json();
     })
     .then(data => {
-  
-      if (data.success && Array.isArray(data.programi)) {
+  //
+      if (data.success) {
+        console.log(true);
+
+        if(Array.isArray(data.programi)){
+
+          console.log(true);
         data.programi.forEach(item => {
           const div = document.createElement('div');
           div.classList.add('contentItem');
@@ -33,18 +29,16 @@ function fetchProgram(program) {
             img.alt = item.programi; 
             img.style.width = '200px';
             img.style.borderRadius = '10px';
-
-          const name = document.createElement('p');
-          name.textContent = "Programi: " + item.programi;
-
           const dega = document.createElement('p');
           dega.textContent = "Fusha e studimit: " + item.fushaStudimit;
 
           const pershkrimi = document.createElement('p');
           pershkrimi.textContent = "Pershkrimi: " + item.pershkrimi;
 
-          div.appendChild(img);
+           const name = document.createElement('p');
+          name.textContent = item.programi ?  "Programi: " + item.programi : '';
           div.appendChild(name);
+          div.appendChild(img);
           div.appendChild(dega);
           div.appendChild(pershkrimi);
           container.appendChild(div);
@@ -54,14 +48,60 @@ function fetchProgram(program) {
           localStorage.setItem('selectedProgram', JSON.stringify(item));
           window.location.href = 'programDetails.html';
           });
+        
         });
+      }
+      /*     else{
+
+            data.forEach(item =>{
+          const div = document.createElement('div');
+          div.classList.add('contentItem');
+
+          const img = document.createElement('img');
+            img.src = '..' + item.imgPath; 
+            img.alt = item.pershkrimi; 
+            img.style.width = '200px';
+            img.style.borderRadius = '10px';
+          const dega = document.createElement('p');
+          dega.textContent = "Fusha e studimit: " + item.fushaStudimit;
+
+          const pershkrimi = document.createElement('p');
+          pershkrimi.textContent = "Pershkrimi: " + item.pershkrimi;
+
+          div.appendChild(img);
+          div.appendChild(dega);
+          div.appendChild(pershkrimi);
+          container.appendChild(div);
+
+          div.addEventListener('click', () => {
+
+          localStorage.setItem('selectedProgram', JSON.stringify(item));
+          window.location.href = 'programDetails.html';
+
+            });
+          });
+        
+    
+        }
+        */
       } else {
         container.innerHTML= '';
-        console.error("No bachelor programs found or not an array s " + data.error);
+        console.error("No programs found or not an array " + data.error);
       }
     })
     .catch(err => console.error("Fetch error:", err));
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+const bachelorBtn = document.getElementById('bachelorBtn');
+const masterBtn = document.getElementById('masterBtn');
+const phdBtn = document.getElementById('phdBtn');
+const studyBtn = document.getElementById('studyBtn');
+const applyBtn = document.getElementById('applyBtn');
+const smisBtn = document.getElementById('smisBtn');
+const homeBtn = document.getElementById('homeBtn');
+const buttonBar = document.getElementById('buttonBar');
+
 
 function showMain(){
 
@@ -155,7 +195,6 @@ bachelorBtn.addEventListener('click', () => {
     smisBtn.addEventListener('click', () => {
         window.location.href = "../static/login.html";
     });
-
 
     homeBtn.addEventListener('click', ()=>{
            showMain();

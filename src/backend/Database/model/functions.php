@@ -76,6 +76,7 @@ function getProgrami($programi)
     p.Emri,
     p.Mbiemri,
     p.Vendbanimi,
+    p.numri_telefonit,
     s.emailUBT,
     s.grupi,
     s.vitiAkademik,
@@ -164,10 +165,10 @@ function getAllDega(){
         return ['success' => false, 'error' => 'Database connection failed'];
     }
 
-    $stmt = sqlsrv_query($con, "select d.fushaStudimit, p.programi, p.ID as id_programit from dega d join programet p ON p.id_deges = d.ID");
+    $stmt = sqlsrv_query($con, "select * from dega");
 
      if ($stmt === false) {
-        die(json_encode(array("error" => "Query failed")));
+        return ['success' => false, 'error' => 'failed to fetch data'];
     }
 
 
