@@ -1,5 +1,11 @@
 <?php
  
+require __DIR__ . '/../../../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../../');
+$dotenv->load();
+
+
  function getConnection(){
 
 #  amin PC - "DESKTOP-81CTT3O", ["Database" => "ubt","Uid" => "sa","PWD" => "11112222"]
@@ -12,16 +18,17 @@
 
 # amin laptop  $con = sqlsrv_connect("aminfirstserver.database.windows.net", ["Database" => "ubt","Uid" => "client","PWD" => "UBT_cloud123C!"]);
  
-$con = sqlsrv_connect("aminfirstserver.database.windows.net,1433",
-    [
-        "Database" => "ubt",
-        "Uid" => "ubtwebclient_login",
-        "PWD" => "UBT_cloud123C!",
-        "Encrypt" => true,
-        "TrustServerCertificate" => false
-    ]
-);
+$con = sqlsrv_connect(trim($_ENV['DB_SERVER']), [
+    "Database" => trim($_ENV['DB_NAME']),
+    "Uid" => trim($_ENV['DB_USER']),
+    "PWD" => trim($_ENV['DB_PASSWORD']),
+    "Encrypt" => filter_var(trim($_ENV['DB_ENCRYPT']), FILTER_VALIDATE_BOOLEAN),
+    "TrustServerCertificate" => filter_var(trim($_ENV['DB_TRUST_CERT']), FILTER_VALIDATE_BOOLEAN)
+]);
 
+if (!$con) {
+    die(print_r(sqlsrv_errors(), true));
+}
  if (!$con) {
         die(json_encode(array("error" => "Connection failed")));
     }
@@ -30,6 +37,4 @@ $con = sqlsrv_connect("aminfirstserver.database.windows.net,1433",
 return $con;
  }
  
-
-
 ?>
